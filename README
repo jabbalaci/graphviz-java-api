@@ -1,0 +1,37 @@
+GraphViz Java API
+=================
+
+Author:     Laszlo Szathmary (jabba.laci@gmail.com)
+Date:       2003--2011
+License:    GPL Version 2
+
+Home page:  ...
+GitHub:     https://github.com/jabbalaci/graphviz-java-api
+
+
+With this Java class you can simply call dot from your Java programs. 
+It is made to facilitate the usage of GraphViz [1] in your Java programs.
+
+[1] http://www.research.att.com/sw/tools/graphviz/download.html
+
+
+Example
+-------
+Check out the file Proba.java to see how to use this simple API.
+
+
+History
+-------
+        Apr. 10, 2011   Moving to GitHub.
+0.4     Feb. 5, 2011    Patch of Keheliya Gallaba is added. Now you can 
+                        specify the type of the output file: 
+                        gif, dot, fig, pdf, ps, svg, png, etc.
+0.3     Nov. 29, 2010   Windows support (only took 7 years :)) 
+                        + ability to read DOT source from a file
+0.2     July 22, 2010   simple bug fix
+0.1     Dec. 4, 2003    first release
+
+
+Contributors
+------------
+Thanks to these people for their contributions: Mike Chenault, Keheliya Gallaba.
