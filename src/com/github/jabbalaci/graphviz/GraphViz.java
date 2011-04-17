@@ -5,7 +5,7 @@ package com.github.jabbalaci.graphviz;
 /*
  ******************************************************************************
  *                                                                            *
- *              (c) Copyright 2003 Laszlo Szathmary                           *
+ *                    (c) Copyright Laszlo Szathmary                          *
  *                                                                            *
  * This program is free software; you can redistribute it and/or modify it    *
  * under the terms of the GNU Lesser General Public License as published by   *
@@ -39,7 +39,7 @@ import java.io.InputStreamReader;
  *
  * <dt>Description:
  * <dd> With this Java class you can simply call dot
- *      from your Java programs
+ *      from your Java programs.
  * <dt>Example usage:
  * <dd>
  * <pre>
@@ -58,12 +58,6 @@ import java.io.InputStreamReader;
  *
  * </dl>
  *
- * @version v0.4, 2011/02/05 (February) -- Patch of Keheliya Gallaba is added. Now you
- * can specify the type of the output file: gif, dot, fig, pdf, ps, svg, png, etc.
- * @version v0.3, 2010/11/29 (November) -- Windows support + ability 
- * to read the graph from a text file
- * @version v0.2, 2010/07/22 (July) -- bug fix
- * @version v0.1, 2003/12/04 (December) -- first release
  * @author  Laszlo Szathmary (<a href="jabba.laci@gmail.com">jabba.laci@gmail.com</a>)
  */
 public class GraphViz
@@ -81,6 +75,41 @@ public class GraphViz
 //   private static String DOT = "c:/Program Files/Graphviz2.26.3/bin/dot.exe";	// Windows
 
    /**
+    * The image size in dpi. 96 dpi is normal size. Higher values are 10% higher each.
+    * Lower values 10% lower each.
+    * 
+    * dpi patch by Peter Mueller
+    */
+   private int[] dpiSizes = {46, 51, 57, 63, 70, 78, 86, 96, 106, 116, 128, 141, 155, 170, 187, 206, 226, 249};
+   
+   /**
+    * Define the index in the image size array.
+    */
+   private int currentDpiPos = 7;
+      
+   /**
+    * Increase the image size (dpi).
+    */
+   public void increaseDpi() {
+      if ( this.currentDpiPos < (this.dpiSizes.length - 1) ) {
+         ++this.currentDpiPos;
+      }
+   }
+   
+   /**
+    * Decrease the image size (dpi).
+    */
+   public void decreaseDpi() {
+      if (this.currentDpiPos > 0) {
+         --this.currentDpiPos;
+      }
+   }
+   
+   public int getImageDpi() {
+      return this.dpiSizes[this.currentDpiPos];
+   }
+   
+   /**
     * The source of the graph written in dot language.
     */
 	private StringBuilder graph = new StringBuilder();
@@ -97,28 +126,32 @@ public class GraphViz
     * @return Source of the graph in dot language.
     */
    public String getDotSource() {
-      return graph.toString();
+      return this.graph.toString();
    }
 
    /**
     * Adds a string to the graph's source (without newline).
     */
    public void add(String line) {
-      graph.append(line);
+      this.graph.append(line);
    }
 
    /**
     * Adds a string to the graph's source (with newline).
     */
    public void addln(String line) {
-      graph.append(line + "\n");
+      this.graph.append(line + "\n");
    }
 
    /**
     * Adds a newline to the graph's source.
     */
    public void addln() {
-      graph.append('\n');
+      this.graph.append('\n');
+   }
+   
+   public void clearGraph(){
+      this.graph = new StringBuilder();
    }
 
    /**
@@ -190,7 +223,7 @@ public class GraphViz
          Runtime rt = Runtime.getRuntime();
          
          // patch by Mike Chenault
-         String[] args = {DOT, "-T"+type, dot.getAbsolutePath(), "-o", img.getAbsolutePath()};
+         String[] args = {DOT, "-T"+type, "-Gdpi="+dpiSizes[this.currentDpiPos], dot.getAbsolutePath(), "-o", img.getAbsolutePath()};
          Process p = rt.exec(args);
          
          p.waitFor();

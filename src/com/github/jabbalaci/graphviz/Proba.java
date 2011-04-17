@@ -1,4 +1,5 @@
 package com.github.jabbalaci.graphviz;
+
 import java.io.File;
 
 public class Proba
@@ -23,6 +24,8 @@ public class Proba
       gv.addln(gv.end_graph());
       System.out.println(gv.getDotSource());
       
+      gv.increaseDpi();   // 106 dpi
+      
       String type = "gif";
 //      String type = "dot";
 //      String type = "fig";    // open with xfig
@@ -31,7 +34,7 @@ public class Proba
 //      String type = "svg";    // open with inkscape
 //      String type = "png";
 //      String type = "plain";
-      File out = new File("/tmp/out." + type);   // Linux
+      File out = new File("/tmp/out"+gv.getImageDpi()+"."+ type);   // Linux
 //      File out = new File("c:/eclipse.ws/graphviz-java-api/out." + type);    // Windows
       gv.writeGraphToFile( gv.getGraph( gv.getDotSource(), type ), out );
    }
