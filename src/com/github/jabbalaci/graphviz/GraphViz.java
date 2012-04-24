@@ -32,6 +32,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
+import java.util.Properties;
 
 /**
  * <dl>
@@ -59,7 +60,8 @@ import java.io.InputStreamReader;
  *
  * </dl>
  *
- * @version v0.5, 2012/04/22 (April) -- Patch of Abdur Rahman (OS detection + start subgraph)
+ * @version v0.5, 2012/04/24 (April) -- Patch of Abdur Rahman (OS detection + start subgraph + 
+ * read config file)
  * @version v0.4, 2011/02/05 (February) -- Patch of Keheliya Gallaba is added. Now you
  * can specify the type of the output file: gif, dot, fig, pdf, ps, svg, png, etc.
  * @version v0.3, 2010/11/29 (November) -- Windows support + ability to read the graph from a text file
@@ -73,28 +75,32 @@ public class GraphViz
 	 * Detects the client's operating system.
 	 */
 	private final static String osName = System.getProperty("os.name");
+	
 	/**
-	 * Load the config.properties file
+	 * Load the config.properties file.
 	 */
-	static final String file="config.properties";
-	static final Properties configFile = new Properties() {
-		private static final long serialVersionUID = 1L; {
+	private final static String cfgProp = "config.properties";
+	private final static Properties configFile = new Properties() {
+		private final static long serialVersionUID = 1L; {
 			try {
-				load(new FileInputStream(file));
+				load(new FileInputStream(cfgProp));
 			} catch (Exception e) {}
-			
 		}
-		
 	};
 
 	/**
 	 * The dir. where temporary files will be created.
 	 */
-	private static String TEMP_DIR = osName.equals("Linux") ? configFile.getProperty("tempDirForLinux") : configFile.getProperty("tempDirForWindows");
+	private static String TEMP_DIR = osName.equals("Linux") 
+			? configFile.getProperty("tempDirForLinux") 
+			: configFile.getProperty("tempDirForWindows");
+			
 	/**
 	 * Where is your dot program located? It will be called externally.
 	 */
-	private static String DOT = osName.equals("Linux") ? configFile.getProperty("dotForLinux") : configFile.getProperty("dotForWindows");
+	private static String DOT = osName.equals("Linux") 
+			? configFile.getProperty("dotForLinux") 
+			: configFile.getProperty("dotForWindows");
 	
 	/**
 	 * The image size in dpi. 96 dpi is normal size. Higher values are 10% higher each.
