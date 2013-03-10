@@ -74,7 +74,7 @@ public class GraphViz
 	/**
 	 * Detects the client's operating system.
 	 */
-	private final static String osName = System.getProperty("os.name");
+	private final static String osName = System.getProperty("os.name").replaceAll("\\s","");
 	
 	/**
 	 * Load the config.properties file.
@@ -91,16 +91,12 @@ public class GraphViz
 	/**
 	 * The dir. where temporary files will be created.
 	 */
-	private static String TEMP_DIR = osName.equals("Linux") 
-			? configFile.getProperty("tempDirForLinux") 
-			: configFile.getProperty("tempDirForWindows");
+  private static String TEMP_DIR = configFile.getProperty("tempDirFor" + osName);
 			
 	/**
 	 * Where is your dot program located? It will be called externally.
 	 */
-	private static String DOT = osName.equals("Linux") 
-			? configFile.getProperty("dotForLinux") 
-			: configFile.getProperty("dotForWindows");
+  private static String DOT = configFile.getProperty("dotFor" + osName);
 	
 	/**
 	 * The image size in dpi. 96 dpi is normal size. Higher values are 10% higher each.
