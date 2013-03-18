@@ -2,7 +2,7 @@ GraphViz Java API
 =================
 
 Author:     Laszlo Szathmary (jabba.laci@gmail.com)
-Date:       2003--2012
+Date:       2003--2013
 License:    GPL Version 2
 
 Home page:  ...
@@ -22,6 +22,7 @@ Check out the file Proba.java to see how to use this simple API.
 
 History
 -------
+0.5.1   Mar. 18, 2013   Mac support (patch of Juan Hoyos)
 0.5     Apr. 24, 2012   OS detection, start subgraph, read config file
                         (patch of Abdur Rahman) 
 0.4.5   Apr. 16, 2011   Image dpi can be changed (patch of Peter Mueller).
@@ -38,4 +39,9 @@ History
 Contributors
 ------------
 Thanks to these people for their contributions: 
-Mike Chenault, Keheliya Gallaba, Peter Mueller, Abdur Rahman.
+
+Mike Chenault
+Keheliya Gallaba
+Peter Mueller
+Abdur Rahman
+Juan Hoyos

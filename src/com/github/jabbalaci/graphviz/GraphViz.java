@@ -60,6 +60,7 @@ import java.util.Properties;
  *
  * </dl>
  *
+ * @version v0.5.1, 2013/03/18 (March) -- Patch of Juan Hoyos (Mac support)
  * @version v0.5, 2012/04/24 (April) -- Patch of Abdur Rahman (OS detection + start subgraph + 
  * read config file)
  * @version v0.4, 2011/02/05 (February) -- Patch of Keheliya Gallaba is added. Now you
