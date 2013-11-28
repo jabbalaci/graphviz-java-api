@@ -35,16 +35,16 @@ public class Proba
 		//      String type = "png";
 		//      String type = "plain";
 		
-		String repesentationType= "circo";
-		//		String repesentationType= "dot";
+		String repesentationType= "dot";
 		//		String repesentationType= "neato";
 		//		String repesentationType= "fdp";
 		//		String repesentationType= "sfdp";
 		// 		String repesentationType= "twopi";
+		// 		String repesentationType= "circo";
 		
 		File out = new File("/tmp/out"+gv.getImageDpi()+"."+ type);   // Linux
 		//      File out = new File("c:/eclipse.ws/graphviz-java-api/out." + type);    // Windows
-		gv.writeGraphToFile( gv.getGraph( gv.getDotSource(), type, repesentationType ), out );
+		gv.writeGraphToFile( gv.getGraph(gv.getDotSource(), type, repesentationType), out );
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class Proba
 	 */
 	private void start2()
 	{
-		String dir = "/home/jabba/eclipse2/laszlo.sajat/graphviz-java-api";     // Linux
+		String dir = "/home/jabba/Dropbox/git.projects/laszlo.own/graphviz-java-api";     // Linux
 		String input = dir + "/sample/simple.dot";
 		//	   String input = "c:/eclipse.ws/graphviz-java-api/sample/simple.dot";    // Windows
 
@@ -70,15 +70,16 @@ public class Proba
 		//    String type = "png";
 		//      String type = "plain";
 		
-		String repesentationType= "circo";
-		//		String repesentationType= "dot";
+		
+		String repesentationType= "dot";
 		//		String repesentationType= "neato";
 		//		String repesentationType= "fdp";
 		//		String repesentationType= "sfdp";
 		// 		String repesentationType= "twopi";
+		//		String repesentationType= "circo";
 		
 		File out = new File("/tmp/simple." + type);   // Linux
 		//	   File out = new File("c:/eclipse.ws/graphviz-java-api/tmp/simple." + type);   // Windows
-		gv.writeGraphToFile( gv.getGraph( gv.getDotSource(), type,repesentationType ), out );
+		gv.writeGraphToFile( gv.getGraph(gv.getDotSource(), type, repesentationType), out );
 	}
 }

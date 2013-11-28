@@ -53,15 +53,15 @@ import java.util.Properties;
  *    System.out.println(gv.getDotSource());
  *
  *    String type = "gif";
- *    String representationType="circo";
+ *    String representationType="dot";
  *    File out = new File("out." + type);   // out.gif in this example
- *    gv.writeGraphToFile( gv.getGraph( gv.getDotSource(), type, representationType ), out );
+ *    gv.writeGraphToFile( gv.getGraph(gv.getDotSource(), type, representationType), out );
  * </pre>
  * </dd>
  *
  * </dl>
  *
- * @version v0.6, 2013/11/28 (Novemnber) -- Path of Olivier Duplouy is added. Now you 
+ * @version v0.6, 2013/11/28 (November) -- Patch of Olivier Duplouy is added. Now you 
  * can specify the representation type of your graph: dot, neato, fdp, sfdp, twopi, circo
  * @version v0.5.1, 2013/03/18 (March) -- Patch of Juan Hoyos (Mac support)
  * @version v0.5, 2012/04/24 (April) -- Patch of Abdur Rahman (OS detection + start subgraph + 
@@ -83,12 +83,14 @@ public class GraphViz
 	/**
 	 * Load the config.properties file.
 	 */
-	private final static String cfgProp = "app/models/graphviz/config.properties";
+	private final static String cfgProp = "config.properties";
 	private final static Properties configFile = new Properties() {
 		private final static long serialVersionUID = 1L; {
 			try {
 				load(new FileInputStream(cfgProp));
-			} catch (Exception e) {}
+			} catch (Exception e) {
+				System.err.println(e);
+			}
 		}
 	};
 
@@ -147,7 +149,7 @@ public class GraphViz
 	 * a graph.
 	 */
 	public GraphViz() {
-
+		// empty
 	}
 
 	/**
@@ -272,7 +274,7 @@ public class GraphViz
 			Runtime rt = Runtime.getRuntime();
 
 			// patch by Mike Chenault
-			// representation Type with -K argument by Olivier Duplouy
+			// representation type with -K argument by Olivier Duplouy
 			String[] args = {DOT, "-T"+type, "-K"+representationType, "-Gdpi="+dpiSizes[this.currentDpiPos], dot.getAbsolutePath(), "-o", img.getAbsolutePath()};
 			Process p = rt.exec(args);
 			p.waitFor();
