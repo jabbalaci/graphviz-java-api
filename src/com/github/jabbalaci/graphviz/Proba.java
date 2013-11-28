@@ -34,9 +34,17 @@ public class Proba
 		//      String type = "svg";    // open with inkscape
 		//      String type = "png";
 		//      String type = "plain";
+		
+		String repesentationType= "circo";
+		//		String repesentationType= "dot";
+		//		String repesentationType= "neato";
+		//		String repesentationType= "fdp";
+		//		String repesentationType= "sfdp";
+		// 		String repesentationType= "twopi";
+		
 		File out = new File("/tmp/out"+gv.getImageDpi()+"."+ type);   // Linux
 		//      File out = new File("c:/eclipse.ws/graphviz-java-api/out." + type);    // Windows
-		gv.writeGraphToFile( gv.getGraph( gv.getDotSource(), type ), out );
+		gv.writeGraphToFile( gv.getGraph( gv.getDotSource(), type, repesentationType ), out );
 	}
 
 	/**
@@ -61,8 +69,16 @@ public class Proba
 		//    String type = "svg";    // open with inkscape
 		//    String type = "png";
 		//      String type = "plain";
+		
+		String repesentationType= "circo";
+		//		String repesentationType= "dot";
+		//		String repesentationType= "neato";
+		//		String repesentationType= "fdp";
+		//		String repesentationType= "sfdp";
+		// 		String repesentationType= "twopi";
+		
 		File out = new File("/tmp/simple." + type);   // Linux
 		//	   File out = new File("c:/eclipse.ws/graphviz-java-api/tmp/simple." + type);   // Windows
-		gv.writeGraphToFile( gv.getGraph( gv.getDotSource(), type ), out );
+		gv.writeGraphToFile( gv.getGraph( gv.getDotSource(), type,repesentationType ), out );
 	}
 }
