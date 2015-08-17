@@ -7,4 +7,5 @@
     <groupId>com.github.jabbalaci</groupId>
     <artifactId>graphviz-java-api</artifactId>
     <version>1.0-SNAPSHOT</version>
+
 </project>
