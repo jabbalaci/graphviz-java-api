@@ -83,7 +83,7 @@ public class GraphViz
 	/**
 	 * Load the config.properties file.
 	 */
-	private final static String cfgProp = "config.properties";
+	private final static String cfgProp = "config/config.properties";
 	private final static Properties configFile = new Properties() {
 		private final static long serialVersionUID = 1L; {
 			try {
