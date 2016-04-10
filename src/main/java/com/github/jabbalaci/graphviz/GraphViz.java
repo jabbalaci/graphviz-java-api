@@ -60,6 +60,8 @@ import java.io.InputStreamReader;
  *
  * </dl>
  *
+ * @version v0.6.1, 2016/04/10 (April) -- Patch of Markus Keunecke is added.
+ * The eclipse project configuration was extended with the maven nature.
  * @version v0.6, 2013/11/28 (November) -- Patch of Olivier Duplouy is added. Now you
  * can specify the representation type of your graph: dot, neato, fdp, sfdp, twopi, circo
  * @version v0.5.1, 2013/03/18 (March) -- Patch of Juan Hoyos (Mac support)

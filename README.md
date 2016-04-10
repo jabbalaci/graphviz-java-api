@@ -2,7 +2,7 @@ GraphViz Java API
 =================
 
 * Author:     Laszlo Szathmary (jabba.laci@gmail.com)
-* Date:       2003--2015
+* Date:       2003--2016
 * License:    GPL 2 or Apache 2
 
 GitHub:     https://github.com/jabbalaci/graphviz-java-api
@@ -40,6 +40,8 @@ History
 -------
 small changes are not listed...
 
+    0.6.1   Apr. 10, 2016   The eclipse project configuration was extended with the maven nature.
+                            (patch of Markus Keunecke)
     0.6     Nov. 28, 2013   Representation type can be specified (dot, neato, fdp, sfdp, twopi, circo)
                             (patch of Olivier Duplouy)
     0.5.1   Mar. 18, 2013   Mac support (patch of Juan Hoyos)
@@ -67,3 +69,4 @@ Thanks to these people for their contributions:
 * Abdur Rahman
 * Juan Hoyos
 * Olivier Duplouy
+* Markus Keunecke
