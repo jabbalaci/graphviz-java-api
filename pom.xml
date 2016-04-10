@@ -8,4 +8,8 @@
     <artifactId>graphviz-java-api</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <scm>
+        <url>https://github.com/jabbalaci/graphviz-java-api.git</url>
+    </scm>
+    
 </project>
